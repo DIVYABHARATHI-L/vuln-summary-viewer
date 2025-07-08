@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  th a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  th a:hover {
+    text-decoration: underline;
+  }
+  
+  .pagination a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: blue;
+  }
+  

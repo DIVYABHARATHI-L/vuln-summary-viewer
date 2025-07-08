@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vulnerabilities Table</title>
+  <!-- Link to your external CSS -->
+  <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+
+  <h1>Cybersecurity Vulnerabilities Summary</h1>
+
+  <!-- Table to display vulnerabilities -->
+  <table>
+    <thead>
+      <tr>
+        <th>CVE ID</th>
+        <th>Severity</th>
+        <th>Published Date</th>
+        <th>Description</th>
+        <th>Affected Products</th>
+        <th>Patch Available</th>
+        <th>Vendor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop through the vulnerabilities array passed from the server -->
+      <% vulnerabilities.forEach(vuln => { %>
+        <tr>
+          <td><%= vuln.cve_id %></td>
+          <td><%= vuln.severity %></td>
+          <td><%= vuln.published_date.toISOString().split('T')[0] %></td>
+          <td><%= vuln.description %></td>
+          <td><%= vuln.affected_products %></td>
+          <td><%= vuln.patch_available ? 'Yes' : 'No' %></td>
+          <td><%= vuln.vendor %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+</body>
+</html>

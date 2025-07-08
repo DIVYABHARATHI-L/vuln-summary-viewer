@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Filter by Severity</title>
+  <link rel="stylesheet" href="/style/style.css" />
+</head>
+<body>
+  <h1>Filter Vulnerabilities by Severity</h1>
+
+  <!-- Filter Form -->
+  <form action="/vulnerabilities/severity" method="GET">
+    <label for="severity">Choose Severity:</label>
+    <select name="severity" id="severity">
+      <option value="critical">Critical</option>
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
+    </select>
+    <button type="submit">Filter</button>
+  </form>
+
+  <% if (message) { %>
+    <p><%= message %></p>
+  <% } else { %>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>CVE ID</th>
+          <th>Description</th>
+          <th>Severity</th>
+          <th>Published Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(item => { %>
+          <tr>
+            <td><%= item.cve_id %></td>
+            <td><%= item.description %></td>
+            <td><%= item.severity %></td>
+            <td><%= item.published_date.toDateString ? item.published_date.toDateString() : item.published_date %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } %>
+
+  <a href="/">← Back to Home</a>
+</body>
+</html>
